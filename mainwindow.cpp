@@ -70,6 +70,8 @@ void MainWindow::on_btn_international_calculate_clicked()
         activity = ActivityLevel::VeryActive;
     }
 
-    User u{this, age, height, weight, gender, activity };
-    qDebug() << u.age() << " " << u.height() << " " << u.weight() << Qt::endl;
+    User u{ this, age, height, weight, gender, activity };
+    u.setup();
+
+    qDebug() << u.calories() << " " << u.proteinIntake() << " " << u.carbohydrateIntake() << " " << u.fatIntake() << Qt::endl;
 }

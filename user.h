@@ -26,26 +26,20 @@ class User : public QObject
 public:
     explicit User(QObject *parent = nullptr);
     User(QObject* parent, unsigned int age, float height, float weight, Gender gender, ActivityLevel activityLevel);
-    unsigned int age();
-    float height();
-    float weight();
-    float BMR();
-    float calories();
-    Gender gender();
-    ActivityLevel activityLevel();
-    float carbohydrateIntake();
-    float proteinIntake();
-    float fatIntake();
-
-signals:
-    void calculatedBMR();
-    void calculatedCalories();
-    void calculatedMacroSplit();
-
-public slots:
+    unsigned int age() const;
+    float height() const;
+    float weight() const;
+    float BMR() const;
+    float calories() const;
+    Gender gender() const;
+    ActivityLevel activityLevel() const;
+    float carbohydrateIntake() const;
+    float proteinIntake() const;
+    float fatIntake() const;
     void calculateBMR();
     void calculateCalories();
     void calculateMacroSplit();
+    void setup();
 
 private:
     unsigned int age_;

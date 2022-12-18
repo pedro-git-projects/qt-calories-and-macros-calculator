@@ -15,7 +15,6 @@ User::User(QObject* parent, unsigned int age, float height, float weight, Gender
       gender_{gender},
       activityLevel_{activityLevel}
 {
-
 }
 
 void User::calculateBMR()
@@ -30,7 +29,6 @@ void User::calculateBMR()
         double bmrResult { 655.1 + (9.563 * weight_) + (1.850 * height_) - (4.676 * age_) };
         BMR_ = bmrResult;
     }
-    emit calculatedBMR();
 }
 
 void User::calculateCalories()
@@ -41,8 +39,6 @@ void User::calculateCalories()
     if(activityLevel_ == ActivityLevel::Moderate) calories_ = BMR_ * 1.55;
     if(activityLevel_ == ActivityLevel::Active) calories_ = BMR_ * 1.75;
     if(activityLevel_ == ActivityLevel::VeryActive) calories_ = BMR_ * 1.9;
-
-    emit calculatedCalories();
 }
 
 void User::calculateMacroSplit()
@@ -54,55 +50,64 @@ void User::calculateMacroSplit()
     proteinIntake_ = (calories_ * 0.35)/protein.caloriesPerGram();
     fatIntake_ = (calories_ * 0.20)/fat.caloriesPerGram();
     carbohydrateIntake_ = (calories_ * 0.45)/carb.caloriesPerGram();
-
-    emit calculatedMacroSplit();
 }
 
+void User::setup()
+{
+    calculateBMR();
+    calculateCalories();
+    calculateMacroSplit();
+}
 
-unsigned int User::age()
+unsigned int User::age() const
 {
     return age_;
 }
 
-float User::height()
+float User::height() const
 {
     return height_;
 
 }
 
-float User::weight()
+float User::weight() const
 {
     return weight_;
 }
 
-float User::BMR()
+float User::BMR() const
 {
     return BMR_;
 }
 
 
-Gender User::gender()
+Gender User::gender() const
 {
     return gender_;
 }
 
-ActivityLevel User::activityLevel()
+ActivityLevel User::activityLevel() const
 {
     return activityLevel_;
 }
 
-float User::carbohydrateIntake()
+float User::calories() const
+{
+    return calories_;
+}
+
+float User::carbohydrateIntake() const
 {
     return carbohydrateIntake_;
 }
 
-float User::proteinIntake()
+float User::proteinIntake() const
 {
     return proteinIntake_;
 
 }
 
-float User::fatIntake()
+float User::fatIntake() const
 {
     return fatIntake_;
 }
