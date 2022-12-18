@@ -19,6 +19,7 @@ set(PROJECT_SOURCES
         mainwindow.ui
         macro.h macro.cpp
         user.h user.cpp
+        utils.h utils.cpp
 )
 
 if(${QT_VERSION_MAJOR} GREATER_EQUAL 6)

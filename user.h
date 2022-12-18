@@ -25,7 +25,7 @@ class User : public QObject
     Q_OBJECT
 public:
     explicit User(QObject *parent = nullptr);
-    User(QObject* parent, unsigned int age, float height, float weight, Gender gender);
+    User(QObject* parent, unsigned int age, float height, float weight, Gender gender, ActivityLevel activityLevel);
     unsigned int age();
     float height();
     float weight();

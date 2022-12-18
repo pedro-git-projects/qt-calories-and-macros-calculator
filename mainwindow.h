@@ -15,6 +15,9 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private slots:
+    void on_btn_international_calculate_clicked();
+
 private:
     Ui::MainWindow *ui;
 };

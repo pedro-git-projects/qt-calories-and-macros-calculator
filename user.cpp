@@ -7,12 +7,13 @@ User::User(QObject *parent)
 
 }
 
-User::User(QObject* parent, unsigned int age, float height, float weight, Gender gender)
+User::User(QObject* parent, unsigned int age, float height, float weight, Gender gender, ActivityLevel activityLevel)
     : QObject{parent},
       age_{age},
       height_{height},
       weight_{weight},
-      gender_{gender}
+      gender_{gender},
+      activityLevel_{activityLevel}
 {
 
 }
